@@ -1,0 +1,5 @@
+export GMAIL_USERNAME="gambk01@gmail.com"
+export GMAIL_PASSWORD="gambk01&#"
+export MAILCHIMP_API_KEY=""
+export MAILCHIMP_LIST_ID="Your_List_ID"
+export OWNER_EMAIL="gambk01@gmail.com"
