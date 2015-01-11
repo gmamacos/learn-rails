@@ -7,10 +7,9 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(secure_params)
     if @contact.valid?
-      # TODO save data
-      # TODO send message
+      @contact.update_spreadsheet
+      UserMailer.contact_email(@contact).deliver
       flash[:notice] = "Message sent from #{@contact.name}."
-      #sleep 5 
       redirect_to root_path
     else
       render :new
@@ -19,7 +18,7 @@ class ContactsController < ApplicationController
 
   private
 
-  def secure_params #protects from mass assignment or sql injection
+  def secure_params
     params.require(:contact).permit(:name, :email, :content)
   end
 
